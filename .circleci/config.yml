@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.10
     steps:
       - checkout
       - restore_cache:
@@ -20,7 +20,9 @@ jobs:
           name: Running tests
           command: |
             . venv/bin/activate
+            cd app
             python3 manage.py test
+            flake8
       - store_artifacts:
           path: test-reports/
           destination: python_app
