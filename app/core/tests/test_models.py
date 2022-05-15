@@ -25,7 +25,7 @@ class ModelTests(TestCase):
             get_user_model().objects.create_user(None, 'test1234')
 
     def test_create_new_superuser(self):
-        """test creating a new superuser"""
+        """Test creating a new superuser"""
         user = get_user_model().objects.create_superuser(
             'test@karendzya.com',
             'test1234'
