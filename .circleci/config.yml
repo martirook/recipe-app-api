@@ -21,6 +21,7 @@ jobs:
           command: |
             . venv/bin/activate
             cd app
+            python3 manage.py wait_for_db
             python3 manage.py test
             flake8
       - store_artifacts:
